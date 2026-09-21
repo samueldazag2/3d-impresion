@@ -1,2 +1,4 @@
-// Login, JWT storage and auth context land here in Fase 1 (see docs/scope.md).
-export {}
+export { AuthProvider, useAuth } from './AuthContext'
+export { LoginPage } from './LoginPage'
+export { ProtectedRoute } from './ProtectedRoute'
+export type { LoginRequest, Role, TokenResponse } from './types'
