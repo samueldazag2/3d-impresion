@@ -9,3 +9,14 @@ spring:
   h2:
     console:
       enabled: true
+
+app:
+  security:
+    jwt:
+      # Dev-only secret, never used outside the local profile.
+      secret: local-development-secret-key-please-change-me-32bytes
+    cors:
+      allowed-origins: http://localhost:5173
+    admin:
+      email: ${ADMIN_EMAIL:admin@printcoststudio.local}
+      password: ${ADMIN_PASSWORD:changeme123}

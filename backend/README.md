@@ -25,8 +25,22 @@ export SPRING_PROFILES_ACTIVE=local
 ./mvnw spring-boot:run
 ```
 
-With the `local` profile the app runs against an in-memory H2 database — no
-PostgreSQL setup needed for day-to-day development.
+With the `local` profile the app runs against an in-memory H2 database and a
+dev JWT secret, and seeds an admin user (`admin@printcoststudio.local` /
+`changeme123` by default) — no PostgreSQL or manual setup needed.
+
+## Authentication
+
+- `POST /api/auth/login` — email/password, returns a short-lived access
+  token (15 min) and a longer-lived refresh token (7 days), both JWTs signed
+  HS256 with `JWT_SECRET`.
+- `POST /api/auth/refresh` — exchanges a refresh token for a new access
+  token. Refresh tokens carry a `typ: refresh` claim and are rejected by
+  every other endpoint's resource-server check.
+- Every endpoint other than `/actuator/health`, `/api/auth/login` and
+  `/api/auth/refresh` requires `ROLE_ADMIN` (the only role with a login flow
+  in Fase 1).
+- `/api/auth/login` is rate-limited per IP (in-memory, 5 attempts/minute).
 
 ## Scripts
 
