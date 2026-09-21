@@ -4,25 +4,21 @@ import { BentoCard } from '../../shared'
 
 const modules = [
   {
+    title: 'Nueva cotización',
+    description: 'Calculadora de costo y precio sugerido.',
+    to: '/quotes/new',
+  },
+  { title: 'Historial', description: 'Cotizaciones anteriores y su estado.', to: '/quotes' },
+  {
     title: 'Materiales',
     description: 'Inventario de filamentos y su precio por kilo.',
     to: '/materials',
   },
+  { title: 'Clientes', description: 'Mini-CRM: contactos y notas.', to: '/clients' },
   {
     title: 'Configuración',
     description: 'Moneda, tarifa eléctrica, vida útil de impresora.',
     to: '/settings',
-  },
-  {
-    title: 'Nueva cotización',
-    description: 'Calculadora de costo y precio sugerido. Próximamente.',
-    to: null,
-  },
-  { title: 'Clientes', description: 'Mini-CRM: contactos y notas. Próximamente.', to: null },
-  {
-    title: 'Historial',
-    description: 'Cotizaciones anteriores por cliente. Próximamente.',
-    to: null,
   },
   {
     title: 'Electricidad',
