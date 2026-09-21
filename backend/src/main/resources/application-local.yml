@@ -1,0 +1,14 @@
+# Activate with SPRING_PROFILES_ACTIVE=local for day-to-day development
+# without a local PostgreSQL instance.
+spring:
+  datasource:
+    url: jdbc:h2:mem:printcoststudio
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
