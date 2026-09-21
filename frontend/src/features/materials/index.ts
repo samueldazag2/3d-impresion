@@ -1,2 +1,2 @@
-// Filament inventory CRUD lands here in Fase 1 (see docs/scope.md).
-export {}
+export { MaterialsPage } from './MaterialsPage'
+export type { Material, MaterialRequest } from './types'
