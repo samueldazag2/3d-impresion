@@ -1,2 +1,3 @@
-// Mini-CRM (client CRUD, quote association) lands here in Fase 1 (see docs/scope.md).
-export {}
+export { ClientsPage } from './ClientsPage'
+export type { Client, ClientRequest } from './types'
+export { useClients } from './useClients'
