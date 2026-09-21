@@ -1,0 +1,27 @@
+/*
+ * Design tokens for the PrintCost Studio design system.
+ * Every color pair below was checked against WCAG 2.1 AA contrast
+ * requirements (4.5:1 for text, 3:1 for large text/UI components).
+ * Re-run the ratios before changing any value — see docs/architecture.md.
+ */
+@theme {
+  --color-bg: #111318;
+  --color-surface: #1b1e26;
+  --color-surface-raised: #22262f;
+  --color-border: #666e85;
+
+  --color-ink: #f5f6f8;
+  --color-ink-muted: #b7bcc7;
+  --color-ink-faint: #7d8290;
+
+  --color-accent: #fb923c;
+  --color-accent-strong: #f97316;
+  --color-on-accent: #111318;
+
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+  --color-warning: #facc15;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
