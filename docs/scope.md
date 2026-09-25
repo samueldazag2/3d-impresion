@@ -15,16 +15,20 @@ y control de acceso por roles desde el primer día.
 
 - **Fase 0** (este documento): scaffold del repositorio, sin lógica de negocio.
 - **Fase 1**: backend + base de datos + auth ADMIN + CRUD completo + mini-CRM de
-  clientes + panel de administrador.
-- **Fase 2** (evaluar antes de construir): panel de cliente self-service, login de
-  `CLIENT`, visibilidad restringida a sus propias cotizaciones.
+  clientes + panel de administrador. Incluye el módulo Electricidad y el resumen
+  del negocio (por cobrar, ventas entregadas, ganancia, filamento por reponer).
+- **Fase 2**: despliegue (Neon + Render + Netlify) y ajustes de operación diaria.
+
+**Herramienta de un solo operador.** La usa únicamente el dueño del negocio para
+cotizar y organizarse. No hay clientes externos con acceso: no existe login,
+panel ni rol de cliente. Los clientes del mini-CRM son solo contactos
+que el admin registra.
 
 ## Roles
 
-| Rol      | Disponible desde | Puede |
-|----------|-------------------|-------|
-| `ADMIN`  | Fase 1            | CRUD completo de materiales, cotizaciones, clientes, configuración; ver auditoría. |
-| `CLIENT` | Fase 2            | Ver únicamente sus propias cotizaciones y su estado; solicitar cotizaciones simplificadas. |
+| Rol      | Puede |
+|----------|-------|
+| `ADMIN`  | Todo: materiales, cotizaciones, clientes, electricidad, configuración; auditoría. Es el único rol. |
 
 ## Módulos y forma de los datos
 
@@ -39,7 +43,7 @@ estándar de código del proyecto.
   id: string            // UUID
   email: string
   passwordHash: string  // nunca se expone en la API
-  role: 'ADMIN' | 'CLIENT'
+  role: 'ADMIN'
   createdAt: string
 }
 ```
@@ -50,10 +54,9 @@ estándar de código del proyecto.
 {
   id: string
   name: string
-  email?: string         // requerido en Fase 2 para login
+  email?: string
   phone?: string
   notes?: string
-  userId?: string        // FK a User, se llena cuando el cliente inicia sesión (Fase 2)
   createdAt: string
   updatedAt: string
 }
@@ -168,6 +171,6 @@ suggestedPrice    = totalCost * (1 + marginPercentage / 100)
 
 ## Fuera de alcance por ahora
 
-- Login/self-service de clientes (`CLIENT`) — Fase 2, se evalúa antes de construir.
-- Notificaciones por email — Fase 2.
+- Login, panel o cualquier acceso para clientes externos (la herramienta es de un solo operador).
+- Notificaciones por email.
 - Cualquier dato o código de la versión anterior en producción — no se migra nada.

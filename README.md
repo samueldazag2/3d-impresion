@@ -1,7 +1,8 @@
 # PrintCost Studio
 
 Calculadora de costos y precio sugerido para impresión 3D, con backend propio,
-base de datos persistente y autenticación por roles. Proyecto nuevo e
+base de datos persistente. Pensada para un solo operador (el dueño del
+negocio): no hay acceso para clientes. Proyecto nuevo e
 independiente de la versión anterior en producción (printcost-studio.netlify.app),
 usada solo como referencia funcional/visual.
 
@@ -68,6 +69,7 @@ ahora vía los dashboards de Netlify/Render.
 
 ## Estado
 
-Fase 1 en progreso — backend completo (auth JWT, CRUD, cost engine con
-tests, auditoría). Ver [`docs/scope.md`](docs/scope.md) para el plan de fases
+Fase 1 completa — backend (auth JWT, CRUD, cost engine con tests, auditoría,
+resumen del negocio) y frontend (cotizaciones, clientes, materiales,
+electricidad, configuración, resumen). Falta el despliegue. Ver [`docs/scope.md`](docs/scope.md) para el plan de fases
 y el estado detallado.

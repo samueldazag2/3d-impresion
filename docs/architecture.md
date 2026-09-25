@@ -57,12 +57,13 @@ Los costos se congelan en la fila de `quotes` en el momento de creación
 - Cada request protegido pasa por Spring Security's OAuth2 resource server
   (`NimbusJwtDecoder`), que valida firma, expiración y que `typ = access`.
 - Autorización por rol: todo excepto `/actuator/health`,
-  `/api/auth/login` y `/api/auth/refresh` exige `ROLE_ADMIN` (único rol con
-  login en Fase 1; el modelo de `User.role` ya contempla `CLIENT` para Fase 2).
+  `/api/auth/login` y `/api/auth/refresh` exige `ROLE_ADMIN`. Es una herramienta
+  de un solo operador: `ADMIN` es el único rol y no existe login de clientes.
+  El login se mantiene porque protege los datos cuando la app está desplegada.
 
 ## Persistencia
 
-- Una única migración Flyway (`V1__init.sql`) crea todas las tablas; el
+- Las migraciones Flyway (`V1__init.sql` crea las tablas, `V2` quita el vínculo cliente→usuario); el
   esquema es la fuente de verdad tanto en Postgres (prod) como en H2 (perfil
   `local`), y Hibernate corre en modo `validate` en ambos casos — nunca
   genera DDL por su cuenta.
