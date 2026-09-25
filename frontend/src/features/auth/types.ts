@@ -1,4 +1,4 @@
-export type Role = 'ADMIN' | 'CLIENT'
+export type Role = 'ADMIN'
 
 export interface LoginRequest {
   email: string

@@ -1,27 +1,38 @@
 /*
- * Design tokens for the PrintCost Studio design system.
- * Every color pair below was checked against WCAG 2.1 AA contrast
- * requirements (4.5:1 for text, 3:1 for large text/UI components).
- * Re-run the ratios before changing any value — see docs/architecture.md.
+ * Design tokens for PrintCost Studio (blueprint / teal, light theme).
+ * Every text pair below was checked against WCAG 2.1 AA (4.5:1 for text,
+ * 3:1 for UI components and borders). Re-run the ratios before changing a value.
+ *
+ *   ink        #173B3D on bg 11.3:1    ink-muted #4A5D60 on bg 6.4:1
+ *   ink-faint  #5B6C6F on bg 5.1:1     accent    #086885 on bg 5.8:1
+ *   danger     #B23A3A on bg 5.5:1     success   #3F7D5C on bg 4.5:1
+ *   warning    #8C6209 on bg 5.0:1     info      #1F5FA6 on bg 6.0:1
+ *   border     #64748B on bg 4.4:1     white on accent 6.3:1
  */
 @theme {
-  --color-bg: #111318;
-  --color-surface: #1b1e26;
-  --color-surface-raised: #22262f;
-  --color-border: #666e85;
+  --color-bg: #f3f7f7;
+  --color-surface: #ffffff;
+  --color-surface-raised: #e9f0f1;
+  --color-border: #64748b;
 
-  --color-ink: #f5f6f8;
-  --color-ink-muted: #b7bcc7;
-  --color-ink-faint: #7d8290;
+  --color-ink: #173b3d;
+  --color-ink-muted: #4a5d60;
+  --color-ink-faint: #5b6c6f;
 
-  --color-accent: #fb923c;
-  --color-accent-strong: #f97316;
-  --color-on-accent: #111318;
+  --color-accent: #086885;
+  --color-accent-strong: #086885;
+  --color-on-accent: #ffffff;
 
-  --color-success: #4ade80;
-  --color-danger: #f87171;
-  --color-info: #60a5fa;
-  --color-warning: #facc15;
+  --color-sidebar: #173b3d;
+  --color-sidebar-ink: #e6f1f2;
+  --color-sidebar-muted: #a9c4c7;
+  --color-sidebar-active: #0f4f52;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-success: #3f7d5c;
+  --color-danger: #b23a3a;
+  --color-info: #1f5fa6;
+  --color-warning: #8c6209;
+
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }

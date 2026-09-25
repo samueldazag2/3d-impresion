@@ -1,3 +1,5 @@
 export { NewQuotePage } from './NewQuotePage'
 export { QuotesPage } from './QuotesPage'
+export { QuoteStatusBadge } from './QuoteStatusBadge'
 export type { Quote, QuoteRequest, QuoteStatus } from './types'
+export { useQuotes } from './useQuotes'

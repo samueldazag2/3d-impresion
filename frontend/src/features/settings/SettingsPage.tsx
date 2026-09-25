@@ -1,8 +1,6 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-
 import { SettingsForm } from './SettingsForm'
-import { fetchSettings, updateSettings } from './settingsApi'
 import type { SettingsRequest } from './types'
+import { useSettings, useUpdateSettings } from './useSettings'
 
 function toRequest(settings: { updatedAt: string } & SettingsRequest): SettingsRequest {
   return {
@@ -17,12 +15,8 @@ function toRequest(settings: { updatedAt: string } & SettingsRequest): SettingsR
 }
 
 export function SettingsPage() {
-  const { data, isLoading, isError } = useQuery({ queryKey: ['settings'], queryFn: fetchSettings })
-  const queryClient = useQueryClient()
-  const mutation = useMutation({
-    mutationFn: updateSettings,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['settings'] }),
-  })
+  const { data, isLoading, isError } = useSettings()
+  const mutation = useUpdateSettings()
 
   return (
     <main className="px-6 py-10">
